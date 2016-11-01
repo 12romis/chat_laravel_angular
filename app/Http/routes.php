@@ -20,3 +20,15 @@ Route::get('/', function () {
 
 Route::get('/api/chat-rooms', 'ChatRoomController@getAll');
 Route::post('/api/chat-rooms', 'ChatRoomController@create');
+
+//Messages
+Route::get('/api/messages/{chatRoom}', 'MessageController@getByChatRoom');
+Route::post('/api/messages/{chatRoom}', 'MessageController@createInChatRoom');
+Route::get('/api/messages/{lastMessageId}/{chatRoom}', 'MessageController@getUpdates');
+
+//users api
+Route::get('/api/users/login/kareem', 'UserController@loginKareem');
+Route::get('/api/users/login/mohamed', 'UserController@loginMohamed');
+
+
+Route::bind('chatRoom', 'ChatRoom');

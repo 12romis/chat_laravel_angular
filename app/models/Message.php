@@ -23,8 +23,26 @@ class Message extends Model implements AuthenticatableContract,
 
     protected $fillable = array('body');
 
+    /**
+     * @param $query
+     * @param $lastId
+     * @return mixed
+     */
+    public function scopeAfterId($query, $lastId)
+    {
+        return $query->where('id', '>', $lastId);
+    }
+    /**
+     * @param $query
+     * @param $chatRoom
+     * @return mixed
+     */
+    public function scopeByChatRoom($query, $chatRoom)
+    {
+        return $query->where('chat_room_id', $chatRoom->id);
+    }
 
-    public function chatRoot(){
+    public function chatRoom(){
         return $this->belongsTo('ChatRoom', 'chat_room_id');
     }
 
