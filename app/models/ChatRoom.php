@@ -9,7 +9,9 @@
 namespace App\models;
 
 
-class ChatRoom
+use Illuminate\Database\Eloquent\Model;
+
+class ChatRoom extends Model
 {
     /**
      * @var string
@@ -25,7 +27,8 @@ class ChatRoom
      * @return mixed
      */
     public function messages(){
-        return $this->hasMany('Message', 'chat_room_id');
+
+        return $this->hasMany('App\models\Message', 'chat_room_id');
     }
 
 

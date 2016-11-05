@@ -29,6 +29,15 @@ class ChatRoomController extends BaseController
         return $this->chatRooms->all();
     }
 
+    /**
+     * @param ChatRoom $chatRoom
+     * @return ChatRoom
+     */
+    public function show(ChatRoom $chatRoom)
+    {
+        return $chatRoom;
+    }
+
     public function create(){
 
         return $this->chatRooms->create(Input::all());

@@ -3,12 +3,12 @@
     <div class="col-md-12">
         <div style="height: 400px; overflow-y: auto">
 
-            <div class="media">
+            <div class="media" ng-repeat="message in messages">
                 <div class="media-body">
                     <h4 class="media-heading">
-                        UserName
+                        {{message.user.username}}
                     </h4>
-                    <p>Message...</p>
+                    <p>{{message.body}}</p>
                 </div>
             </div>
 
@@ -16,8 +16,8 @@
     </div>
 
     <div class="col-md-12">
-        <form action="">
-            <textarea rows="10" class="form-control" placeholder="Enter your message"></textarea>
+        <form action="" ng-submit="createMessage(chatRoom, message)">
+            <textarea rows="10" class="form-control" ng-model="message.body" placeholder="Enter your message"></textarea>
             <button class="btn btn-primary">Send</button>
         </form>
     </div>

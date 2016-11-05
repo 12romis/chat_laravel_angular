@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 
 //chat rooms
-
 Route::get('/api/chat-rooms', 'ChatRoomController@getAll');
+Route::get('/api/chat-rooms/{chatRoom}', 'ChatRoomController@show');
 Route::post('/api/chat-rooms', 'ChatRoomController@create');
 
 //Messages
@@ -31,4 +31,4 @@ Route::get('/api/users/login/kareem', 'UserController@loginKareem');
 Route::get('/api/users/login/mohamed', 'UserController@loginMohamed');
 
 
-Route::bind('chatRoom', 'ChatRoom');
+Route::model('chatRoom', 'App\models\ChatRoom');

@@ -25,11 +25,11 @@ class UserController extends BaseController
 
     public function loginKareem()
     {
-        Auth::loginById(1);
+        Auth::loginUsingId(1);
     }
 
     public function loginMohamed ()
     {
-        Auth::loginById(2);
+        Auth::loginUsingId(2);
     }
 }
