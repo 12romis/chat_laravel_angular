@@ -38,7 +38,9 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Romis</div>
+                <div class="title">Laravel 5 & Angular</div>
+                <a href="/app/#/chat-rooms">Go to chat application</a>
             </div>
         </div>
     </body>

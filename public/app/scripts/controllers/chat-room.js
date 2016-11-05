@@ -41,10 +41,15 @@ angular.module('chatApp')
             $scope.messages = $scope.messages.concat(updates);
         }
 
+        var clearMessageBody = function(){
+            $scope.message = '';
+        }
+
 
         $scope.createMessage = function(chatRoom, message) {
             Message.createInChatRoom(chatRoom, message)
-                .then(getUpdates);
+                .then(getUpdates)
+                .then(clearMessageBody);
         }
 
 

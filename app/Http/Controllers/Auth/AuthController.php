@@ -75,13 +75,13 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function authenticate(Request $request)
+    public function postLogin(Request $request)
     {
-        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            // Аутентификация успешна
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+
             return redirect($this->redirectPath);
         }else{
-            return redirect()->back();
+            return redirect()->back()->withErrors('Sorry, but you entered wrong login or email');
         }
     }
 }
