@@ -12,12 +12,12 @@ angular.module('chatApp', ['ngRoute'])
         $routeProvider
 
             .when('/chat-rooms', {
-                templateUrl: '/partials/chat-rooms.html',
+                templateUrl: 'partials/chat-rooms.html',
                 controller:  'ChatRoomsCtrl'
             })
 
-            .when('/chat-room', {
-                templateUrl: '/partials/chat-room.html',
+            .when('/chat-room/:chatRoom', {
+                templateUrl: 'partials/chat-room.html',
                 controller:  'ChatRoomCtrl'
             });
     });

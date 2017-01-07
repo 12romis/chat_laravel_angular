@@ -2,18 +2,19 @@
 
 <div class="row">
     <div class="col-md-12">
-        <select сlass="form-control">
+        <label for="select-room"></label>
+        <select id="select-room" ng-model="selectedChatRoom" ng-options="chatRoom.name for chatRoom in chatRooms" class="form-control">
 
         </select>
-        <button>
+        <button ng-click="selectChatRoom(selectedChatRoom)" class="btn btn-success">
             Select chat room
         </button>
     </div>
-
+    <br><br>
     <div class="col-md-12">
-        <input type="text" class="form-control" placeholder="Enter chat room name">
-        <button>
-            Select chat room
+        <input type="text" class="form-control" ng-model="chatRoom.name" placeholder="To create new chat room enter her name and press button">
+        <button ng-click="createChatRoom(chatRoom)" class="btn btn-success">
+            Create new chat room
         </button>
     </div>
 </div>

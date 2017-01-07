@@ -26,6 +26,11 @@ class Authenticate
     }
 
     /**
+     * @var string
+     */
+    protected $redirectPath = '/app/#/chat-rooms';
+
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request

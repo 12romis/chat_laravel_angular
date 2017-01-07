@@ -30,7 +30,7 @@ class MessageController extends BaseController
      */
     public function getByChatRoom(ChatRoom $chatRoom)
     {
-        return $chatRoom->messages();
+        return $chatRoom->messages;
     }
 
     /**
@@ -39,10 +39,11 @@ class MessageController extends BaseController
      */
     public function createInChatRoom(ChatRoom $chatRoom)
     {
+
         $message = $this->messages->newInstance(Input::all());
 
         $message->chatRoom()->associate($chatRoom);
-        $message->user()->associate($this->me);
+        $message->user()->associate($this->me());
 
         $message->save();
 

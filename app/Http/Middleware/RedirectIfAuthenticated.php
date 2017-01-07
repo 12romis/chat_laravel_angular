@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
@@ -13,6 +14,11 @@ class RedirectIfAuthenticated
      * @var Guard
      */
     protected $auth;
+
+    /**
+     * @var string
+     */
+    protected $redirectPath = '/app/#/chat-rooms';
 
     /**
      * Create a new filter instance.
@@ -34,8 +40,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
+
         if ($this->auth->check()) {
-            return redirect('/');
+            return redirect('/app/#/chat-rooms');
         }
 
         return $next($request);

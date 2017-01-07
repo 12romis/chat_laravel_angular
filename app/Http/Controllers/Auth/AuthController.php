@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -22,6 +24,11 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    /**
+     * @var string
+     */
+    protected $redirectPath = '/app/#/chat-rooms';
 
     /**
      * Create a new authentication controller instance.
@@ -61,5 +68,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Обработка попытки аутентификации
+     *
+     * @return Response
+     */
+    public function postLogin(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+
+            return redirect($this->redirectPath);
+        }else{
+            return redirect()->back()->withErrors('Sorry, but you entered wrong login or email');
+        }
     }
 }
