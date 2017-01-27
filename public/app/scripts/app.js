@@ -16,6 +16,7 @@ angular.module('chatApp', ['ngRoute'])
                 controller:  'ChatRoomsCtrl'
             })
 
+
             .when('/chat-room/:chatRoom', {
                 templateUrl: 'partials/chat-room.html',
                 controller:  'ChatRoomCtrl'
